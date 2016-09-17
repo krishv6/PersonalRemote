@@ -4,6 +4,7 @@
 - ntp-wait - Program that blocks until ntpd gets time from network. The wait is configurable
 
 - mysql basics
+-- mysql -u root -p; #Command to login to database
 -- #Commands are in caps to differentiate from vaiables.Every command ends with semicolan
 -- SHOW DATABASES; #To show all the databases available
 -- CREATE DATABASE mydatabase; #Creates database called mydatabase
