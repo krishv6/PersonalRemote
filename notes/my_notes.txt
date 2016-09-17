@@ -1,0 +1,20 @@
+17/09/2016
+----------
+- /etc/localtime -> /usr/share/zoneinfo/Asia/Kolkata. The softlink would print the time in IST
+- ntp-wait - Program that blocks until ntpd gets time from network. The wait is configurable
+
+- mysql basics
+-- #Commands are in caps to differentiate from vaiables.Every command ends with semicolan
+-- SHOW DATABASES; #To show all the databases available
+-- CREATE DATABASE mydatabase; #Creates database called mydatabase
+-- DROP DATABASE mydatabase; #Deletes database called mydatabase
+-- USE mydatabase; #Opens database called mydatabase
+-- SHOW TABLES; #Shows all the tables in database
+-- CREATE TABLE potluck (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,name VARCHAR(20),food VARCHAR(30),confirmed CHAR(1),signup_date DATE);#Creates a table called potluck
+-- DESCRIBE POTLUCK; #Describes about the table potluck is organized
+-- INSERT INTO `potluck` (`id`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, "John", "Casserole","Y", '2012-04-11');#Insert data into table potluck
+-- SELECT * FROM potluck;# View all entries in table potluck
+-- UPDATE `potluck` SET `confirmed` = 'Y' WHERE `potluck`.`name` ='Sandy';#Update entry `confirmed` in table to 'Y' where the `name` is 'Sandy'
+-- ALTER TABLE potluck ADD email VARCHAR(40) AFTER name;#Add column email to table potluck after column name
+-- ALTER TABLE potluck DROP email; #Remove column email from table potluck
+-- DELETE from potluck  where name='Sandy';#Delete an entry where `name` is 'Sandy' from table potluck 
