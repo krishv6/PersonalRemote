@@ -1,0 +1,65 @@
+#!/bin/sh
+
+NAME=cctvRecord.py
+DESC="CCTV record daemon"
+PIDFILE="/home/pi/run/${NAME}.pid"
+LOGFILE="/home/pi/log/${NAME}.log"
+
+# PHP binary path
+DAEMON="/home/pi/python/cctvRecord.py"
+
+START_OPTS="-S --start --background --make-pidfile --pidfile ${PIDFILE} --exec ${DAEMON}"
+STOP_OPTS="--stop --pidfile ${PIDFILE}"
+
+test -x $DAEMON || exit 0
+
+set -e
+
+case "$1" in
+start)
+if [ -f $PIDFILE ]
+then
+   echo  "cctvRecord.py already running with pid `cat $PIDFILE`"
+   exit 1
+fi
+echo -n "Starting ${DESC}: "
+/sbin/start-stop-daemon $START_OPTS >> $LOGFILE
+echo "$NAME."
+;;
+stop)
+if [ ! -f $PIDFILE ]
+then
+   echo  "cctvRecord.py not running"
+   exit 1
+fi
+echo -n "Stopping $DESC: "
+/sbin/start-stop-daemon $STOP_OPTS
+echo "$NAME."
+rm -f $PIDFILE
+;;
+restart|force-reload)
+echo -n "Restarting $DESC: "
+if [ ! -f $PIDFILE ]
+then
+   echo  "cctvRecord.py not running"
+   exit 1
+fi
+/sbin/start-stop-daemon $STOP_OPTS
+rm -f $PIDFILE
+sleep 1
+if [ -f $PIDFILE ]
+then
+   echo  "cctvRecord.py already running with pid $PIDFILE"
+   exit 1
+fi
+/sbin/start-stop-daemon $START_OPTS >> $LOGFILE
+echo "$NAME."
+;;
+*)
+N=/etc/init.d/$NAME
+echo "Usage: $N {start|stop|restart|force-reload}" >&2
+exit 1
+;;
+esac
+
+exit 0

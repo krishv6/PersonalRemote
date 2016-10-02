@@ -18,4 +18,9 @@
 -- UPDATE `potluck` SET `confirmed` = 'Y' WHERE `potluck`.`name` ='Sandy';#Update entry `confirmed` in table to 'Y' where the `name` is 'Sandy'
 -- ALTER TABLE potluck ADD email VARCHAR(40) AFTER name;#Add column email to table potluck after column name
 -- ALTER TABLE potluck DROP email; #Remove column email from table potluck
--- DELETE from potluck  where name='Sandy';#Delete an entry where `name` is 'Sandy' from table potluck 
+-- DELETE from potluck  where name='Sandy';#Delete an entry where `name` is 'Sandy' from table potluck
+
+21/09/2016
+----------
+- apache2ctl configtest #To test if the apache configuration is valid
+- www-data #The group of apache2 server 

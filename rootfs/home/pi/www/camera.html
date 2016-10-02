@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link href="css/font-awesome.min.css" rel="stylesheet">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/camera.css" rel="stylesheet">
+   </head>
+   <body>
+      <div class="container" id="navbar-container"> 
+         <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">Home</a>
+               </div>
+               <ul class="nav navbar-nav">
+                  <li class="active"><a href="camera.html">Camera</a></li>
+               </ul>
+            </div>
+         </nav>
+      </div>
+      <div class="container" id="header-container">
+         <div class="page-header">
+            <h1>Camera Service</h1>
+         </div>
+      </div>
+      <div class="container" id="button-container">
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <div class="row text-center">
+               <button id="start-stop-camera" class="btn btn-warning">
+                  <i id="start-stop-camera-i" class="fa fa-camera">
+                     Camera Idle
+                  </i>
+               </button>
+               <button id="default-enable-camera" class="btn btn-warning">
+                  <i id="default-enable-camera-i" class="fa fa-toggle-off">
+                     Camera Default : Disabled
+                  </i>
+               </button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container" id="video-container"> 
+         <ul class="list-group" id="video-list">
+            <li class="list-group-item active">
+               CCTV Videos - Format : video_Year_Month_Date_Hour_Min_Sec_Day_Recordtime.h264
+            </li>
+         </ul>
+      </div>
+      <script src="js/jquery-3.1.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/camera.js"></script>
+   </body>
+</html>

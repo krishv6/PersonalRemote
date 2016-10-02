@@ -1,0 +1,2 @@
+# Use the below command to add the piLaunch service at boot
+sudo update-rc.d piLaunch defaults

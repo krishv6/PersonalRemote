@@ -1,0 +1,18 @@
+# This is just an example apache2 configuration
+
+# Install apache2
+sudo apt-get install apache2
+
+# Modify ports.conf to just enable the port that we need ( Listen 192.168.1.100:8000 )
+
+# Modify envvars to run apache as pi ( export APACHE_RUN_USER=pi )
+
+# Edit sites-enabled/000-default.conf  as needed
+
+# Enable ssl cgid modules
+sudo a2enmod ssl cgid
+
+# Copy the required certs
+
+# Restart apache2 service
+sudo service apache2 restart

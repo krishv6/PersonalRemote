@@ -1,0 +1,35 @@
+#!/bin/sh
+
+NAME=pi_init.sh
+DESC="Pi 3 boot launcher"
+
+# PHP binary path
+DAEMON="/home/pi/boot/pi_init.sh"
+
+
+test -x $DAEMON || exit 0
+
+set -e
+
+case "$1" in
+start)
+echo -n "Starting ${DESC}: "
+su pi -c "$DAEMON &"
+echo "$NAME."
+;;
+stop)
+echo -n "$DESC: Stop not supported for "
+echo "$NAME."
+;;
+restart|force-reload)
+echo -n "$DESC: restart|force-reload not supported for "
+echo "$NAME."
+;;
+*)
+N=/etc/init.d/$NAME
+echo "Usage: $N {start|stop|restart|force-reload}" >&2
+exit 1
+;;
+esac
+
+exit 0
