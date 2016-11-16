@@ -23,4 +23,17 @@
 21/09/2016
 ----------
 - apache2ctl configtest #To test if the apache configuration is valid
-- www-data #The group of apache2 server 
+- www-data #The group of apache2 server
+
+16/10/2016
+----------
+# pybluez installation
+sudo easy_install pip
+sudo apt-get install python-dev python3-dev libbluetooth-dev
+sudo pip install pybluez
+
+13/11/2016
+----------
+apt-cache search <package_name> //To search a package
+apt-cache show <package_name> //To get details of package
+bluez uses systemd for start/stop, dbus for data transfer
