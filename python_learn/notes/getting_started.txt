@@ -29,6 +29,7 @@ float(7) = 7.0
 bool(1) = True
 bool(0) = False
 
+divmod calculates quotient and remainder for division operator
 #id gives unique id of variable ( object actually )
 >>> m=8
 >>> id(m)
@@ -367,8 +368,8 @@ StopIteration
 
 GENERATORS
 Generators are lazy
-Good generator program : /Users/KV/python/code/generators.py 
-Good generator program : /Users/KV/python/code/lucas.py
+Good generator program : ../code/yield/generators.py 
+Good generator program : ../code/yield/lucas.py
 >>> def gen12():
 ...    print("1")
 ...    yield 1
@@ -466,3 +467,68 @@ https://docs.python.org/2.4/lib/standard-encodings.html
 
 # File provide various line oriented methods for reading, and are also iterators which yield line by line
 
+Testing,Debugging,Distribution,Installing Code
+----------------------------------------------
+# Unittest moduele provides good testing code
+# ../code/test/text_analyzer.py
+
+# Debug
+pdb - Inbuild python debugger module
+# Launch python in debugger mode
+python3 -m pdb palindrome.py
+pdb.set_trace() # Used to keep breakpoints in code
+# where provides where we are in code execution, call stack
+list : Shows where we are in code
+continue : continue execution
+return : Executes till end of function
+next : step execution
+quit : quit debugging
+print : Print the variables in stack frame
+
+# Virtual environment
+- venv ( # Check using 'python3 -m venv')
+- virtualenv # BUT THIS IS WORKING
+sudo apt-get install python-pip # Install pip
+sudo pip install virtualenv # Install virtualenv
+virtualenv -p python3 palindrome_env # Setup virtual directory
+source bin/activate # Activate virtual environment
+deactivate # Deactivate virtual environment
+
+distutils - Module which install our python module in any installation
+
+Example
+virtualenv -p python3 palindrome_env
+. palindrome_env/bin/activate
+python setup.py install #../code/distribution/palindrome/setup.py
+>>> import palindrome
+>>> palindrome.__file__
+'/local/mnt/workspace/vikrish/Stuff/Personal/python_learn/code/distribution/palindrome/palindrome_env/lib/python3.4/site-packages/palindrome.py'
+deactivate
+python3 setup.py sdist --format zip #Creates distribution zip
+
+
+# Installing 3rd party modules
+-pip
+-anaconda ( for data science open source projects like anaconda,NumPy SciPy )
+https://packaging.python.org/ - Install pip
+https://pypi.python.org/pypi - pip will search for packages from this central repository
+pip install --upgrade pip # Update pip
+
+Example
+virtualenv -p python3 test_env
+source test_env/bin/activate
+# To install 3rd party from remote server
+pip install nose
+>>> import nose
+>>> nose.__file__
+'/local/mnt/workspace/vikrish/Stuff/Personal/python_learn/code/install3rdparty/test_env/lib/python3.4/site-packages/nose/__init__.py'
+# To install 3rd party from local machine
+pip install palindrome-1.0.zip
+# To uninstall packages
+pip uninstall nose
+pip uninstall palindrome-1.0.zip
+
+-m command line argument indicates a module can be run as a script
+3rd party modules are installed into site-packages directory
+
+nose is good tool to run unittest based tests

@@ -72,6 +72,7 @@ class AircraftBase:
         row,column = self.seatplan()
         return len(row)*len(column)
 
+# Child class to the aircraft base class
 class Aircraft(AircraftBase):
     def __init__(self,registration,model,row,column):
         self._registration = registration
