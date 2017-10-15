@@ -37,3 +37,14 @@ sudo pip install pybluez
 apt-cache search <package_name> //To search a package
 apt-cache show <package_name> //To get details of package
 bluez uses systemd for start/stop, dbus for data transfer
+
+16/11/2016
+----------
+sudo bluetoothctl // To get into bluetooth mode
+list // List all the devices / controllers
+show <ID>// Show the device / controller specified 
+select <ID>// Selects the device / controller specified
+power on // Power on the selected device
+scan on // To start scan
+scan off // To stop scan
+

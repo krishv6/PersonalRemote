@@ -45,12 +45,11 @@ function updateWebpage(data){
       li.append(button);
       if(liveAppended == false)
       {
+         button.empty();
+         var font = $("<i>",{"class":"fa fa-download",text:" Download - Live"});
+         button.append(font);
+         button.attr("class", "btn btn-success btn-sm");
          liveAppended = true;
-         var livebutton = $("<button>",{"type":"button","class":"btn btn-success btn-sm"});
-         var livefont = $("<i>",{"class":"fa fa-bolt",text:" Live"});
-         livebutton.append(livefont);
-         li.append("&nbsp;");
-         li.append(livebutton);
       }
       else
       {
