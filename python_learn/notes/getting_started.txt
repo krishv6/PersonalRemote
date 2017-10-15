@@ -424,3 +424,45 @@ any function returns true if any of iterable argument is true
 all function returns true if all of iterable argument is true
 zip functions zips the input arguments into iterator of tuples
 itertools has lots of functions for good iterations
+
+
+15/10/2017
+----------
+open to open file
+ARGS:
+filepath
+read/write/append binary/text
+encoding 
+
+binary mode : raw data, 0s and 1s 
+
+# IN LINUX
+import sys
+>>> sys.getdefaultencoding()
+'ascii'
+# Encoding in python
+https://docs.python.org/2.4/lib/standard-encodings.html
+
+>>> f=open('wasteland.txt',mode='wt',encoding='utf-8') # Open txt file in write mode
+>>> f.write("baba is a good god\n") # Peforms write
+>>> f.flush() # Flush file
+>>> f.close() # Close file
+>>> f=open('wasteland.txt',mode='rt',encoding='utf-8') # Open txt file in read mode
+>>> f.read(10) # Read 10 char
+>>> f.read() # Read till EOF
+>>> f.seek(0) # Sets file pointer to 0
+>>> f.readline() # Reads a line in file
+>>> f.readlines() # Reads lines into list
+>>> f=open('wasteland.txt',mode='at',encoding='utf-8') # Appends to file
+>>> f.writelines(["python is good language\n","writelines do write string list to files\n"])
+
+>>> with  open('wasteland.txt',mode='at',encoding='utf-8') as f: # No need for explicit f.close()
+
+#File like objects can be used as files. Duck typing
+>>>type(file)
+<class '_io.TextIOWrapper'>
+>>>type(web_file)
+<class 'http.client.HTTPResponse'>
+
+# File provide various line oriented methods for reading, and are also iterators which yield line by line
+

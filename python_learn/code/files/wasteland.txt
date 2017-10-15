@@ -1,0 +1,5 @@
+baba is a good god
+karma is a good deed
+Dog is a good friend
+python is good language
+writelines do write string list to files
