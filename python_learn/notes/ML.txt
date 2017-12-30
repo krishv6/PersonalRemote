@@ -1,0 +1,41 @@
+30/12/2017
+----------
+
+Tensor Flow
+ - Build a Computational Graph
+ - Run a Computational Graph
+
+>>> import tensorflow as tf                             # Import tensor flow(tf)
+>>> a=tf.placeholder(tf.float32)                        # User tf input variable
+>>> b=tf.placeholder(tf.float32)                        # User tf input variable
+>>> added_node = a+b                                    # Create an adder node
+>>> sess = tf.Session()                                 # Create a tf session
+>>> print(sess.run(added_node,{a:[1.1,1],b:[2.2,1]}))   # Add using adder node
+[ 3.30000019  2.        ]
+>>> sess.run(added_node,{a:1,b:2})                      # Add using adder node
+3.0
+>>> w=tf.Variable([.3],dtype=tf.float32)                # tf variable, uninitialized
+>>> b=tf.Variable([-.3],dtype=tf.float32)               # tf variable, uninitialized
+>>> x=tf.placeholder(tf.float32)                        # User tf input variable
+>>> linear_modal=w*x+b                                  # Create a linar model. Linear model we create
+>>> init=tf.global_variables_initializer()              # Create tf Initializer object
+>>> sess.run(init)                                      # Initialize tf variable
+>>> print(sess.run(linear_modal,{x:[1,2,3,4]}))         # Run the linear model
+[ 0.          0.30000001  0.60000002  0.90000004]
+>>> t=tf.placeholder(tf.float32)                        # User tf input variable. Data set available for us
+>>> sq_delta=tf.square(linear_modal - t)                # Create an array object which has square delta error of data set and our linear modal
+>>> loss=tf.reduce_sum(sq_delta)                        # Create an array object which has the sum of array of square delta
+>>> sess.run(loss,{x:[1,2,3,4],t:[0.1,0.4,0.5,0.6]})    # Run loss function with bigger loss
+0.12
+>>> sess.run(loss,{x:[1,2,3,4],t:[0.1,0.4,0.7,1.0]})    # Run loss function with smaller loss
+0.039999984
+>>> fixw=tf.assign(w,[1])                               # Setup reassigning w
+>>> fixb=tf.assign(b,[-1])                              # Setup reassigning b
+>>> sess.run([fixw,fixb])                               # Perform reassigning w,b
+[array([ 1.], dtype=float32), array([-1.], dtype=float32)]
+>>> sess.run(loss,{x:[1,2,3,4],t:[0,1,2,3]})            # Choose user input x, data set t in a way so we see 0 loss
+0.0
+
+
+
+
