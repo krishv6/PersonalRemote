@@ -36,6 +36,26 @@ Tensor Flow
 >>> sess.run(loss,{x:[1,2,3,4],t:[0,1,2,3]})            # Choose user input x, data set t in a way so we see 0 loss
 0.0
 
+Create a virtualenv and install tensorflow
 
+15/1/2017
+---------
+skikit-learn
+.fit() - To fit a model to data 
+.predict() - To predict a model to data
+from sklearn import datasets
+from sklearn.neighbors import KNeighborsClassifier
+import pandas as pd
+iris=datasets.load_iris()
+knn = KNeighborsClassifier(n_neighbors=6)
+# Features are the data,target are the labels
+# Features are in columns and numpy arrays in rows
+>>> knn.fit(iris['data'],iris['target'])
+KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_jobs=1, n_neighbors=6, p=2,
+           weights='uniform')
+# Basic understanding - Create a input dataset which is a numpy array with features as columns and observations as rows and also target dataset which has the same number as number of observarions ( rows ). Use sklearn.neighbors.KNeighborsClassifier.fit to fit the input dataset with target dataset. Then use the ssklearn.neighbors.KNeighborsClassifier.predict to predict the target for a new input dataset.
 
-
+18/1/18
+-------
+https://www.gapminder.org/data/ # Has good datasets in excel format
